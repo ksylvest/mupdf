@@ -5,3 +5,15 @@
 [![GitHub](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/ksylvest/mupdf)
 [![Yard](https://img.shields.io/badge/docs-site-blue.svg)](https://mupdf.ksylvest.com)
 [![CircleCI](https://img.shields.io/circleci/build/github/ksylvest/mupdf)](https://circleci.com/gh/ksylvest/mupdf)
+
+## Installation
+
+```bash
+gem install mupdf
+```
+
+## Usage
+
+```ruby
+MuPDF.mutool('info', 'file.pdf')
+```
