@@ -14,6 +14,19 @@ gem install mupdf
 
 ## Usage
 
+### Document
+
+A `MuPDF::Document` wraps for a file:
+
 ```ruby
-MuPDF.mutool('info', 'file.pdf')
+document = MuPDF::Document.new('./file.pdf')
+```
+
+#### Info
+
+The `info` command displays information about a document such as the number of pages:
+
+```ruby
+info = document.info
+info.pages # e.g. 2
 ```
