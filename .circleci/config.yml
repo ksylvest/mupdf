@@ -1,0 +1,49 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@2.3.1
+
+executors:
+  default:
+    docker:
+      - image: cimg/ruby:3.3.6
+
+jobs:
+  doc:
+    executor: default
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec yard doc
+  rspec:
+    executor: default
+    steps:
+      - checkout
+      - ruby/install-deps
+      - ruby/rspec-test
+  rubocop:
+    executor: default
+    steps:
+      - checkout
+      - ruby/install-deps
+      - ruby/rubocop-check
+  release:
+    executor: default
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec rake release
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - doc
+      - rspec
+      - rubocop
+      - release:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v\d+\.\d+\.\d+$/

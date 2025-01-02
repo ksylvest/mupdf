@@ -1,0 +1,11 @@
+require:
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+
+RSpec/SpecFilePathFormat:
+  CustomTransform:
+    MuPDF: mupdf
