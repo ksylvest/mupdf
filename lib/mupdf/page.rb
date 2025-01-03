@@ -107,7 +107,17 @@ module MuPDF
 
     # @return [String]
     def inspect
-      "#<#{self.class.name} pagenum=#{pagenum}>"
+      "#<#{self.class.name} pagenum=#{@pagenum}>"
+    end
+
+    # @return [Integer]
+    def width
+      @media_box.width
+    end
+
+    # @return [Integer]
+    def height
+      @media_box.height
     end
   end
 end
