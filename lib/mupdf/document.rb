@@ -8,6 +8,11 @@ module MuPDF
       @pathname = pathname
     end
 
+    # @return [String]
+    def inspect
+      "#<#{self.class.name} pathname=#{@pathname}>"
+    end
+
     # @raise [MuPDF::CommandError]
     #
     # @return [MuPDF::Info]
@@ -15,6 +20,16 @@ module MuPDF
       @info ||= begin
         result = MuPDF.mutool('info', String(@pathname))
         MuPDF::Info.parse(result)
+      end
+    end
+
+    # @raise [MuPDF::CommandError]
+    #
+    # @return [Array<MuPDF::Page>]
+    def pages
+      @pages ||= begin
+        result = MuPDF.mutool('pages', String(@pathname))
+        MuPDF::Page.parse(result)
       end
     end
   end

@@ -30,3 +30,17 @@ The `info` command displays information about the document such as the number of
 info = document.info
 info.pages # e.g. 2
 ```
+
+#### Pages
+
+The `pages` command finds sizing information about the pages within a document:
+
+```ruby
+pages = document.pages
+pages.count # e.g. 2
+page = pages[0]
+page.pagenum # 1
+box = page.media_box # page.crop_box / page.bleed_box / page.trim_box / page.art_box
+box.width # 612
+box.height # 792
+```
