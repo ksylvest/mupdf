@@ -9,3 +9,9 @@ AllCops:
 RSpec/SpecFilePathFormat:
   CustomTransform:
     MuPDF: mupdf
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
