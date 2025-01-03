@@ -12,6 +12,24 @@
 gem install mupdf
 ```
 
+_This project requires `mutool` be installed on your system. To verify ensure the following works:_
+
+```bash
+mutool
+```
+
+To install `mutool` on MacOS use:
+
+```bash
+brew install mupdf
+```
+
+To install `mutool` on Ubuntu use:
+
+```bash
+apt-get install mupdf
+```
+
 ## Usage
 
 ### Document
