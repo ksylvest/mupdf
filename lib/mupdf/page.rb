@@ -14,14 +14,14 @@ module MuPDF
     #
     # @return [Array<MuPDF::Page>]
     def self.parse(text)
-      text.scan(REGEX).map do |pagenum, content|
+      text.scan(REGEX).map do |number, content|
         new(
           media_box: parse_media_box(content),
           crop_box: parse_crop_box(content),
           art_box: parse_art_box(content),
           bleed_box: parse_bleed_box(content),
           trim_box: parse_trim_box(content),
-          pagenum: Integer(pagenum)
+          number: Integer(number)
         )
       end
     end
@@ -95,19 +95,19 @@ module MuPDF
     # @param art_box [MuPDF::Box]
     # @param bleed_box [MuPDF::Box]
     # @param trim_box [MuPDF::Box]
-    # @param pagenum [Integer]
-    def initialize(media_box:, crop_box:, art_box:, bleed_box:, trim_box:, pagenum:)
+    # @param number [Integer]
+    def initialize(media_box:, crop_box:, art_box:, bleed_box:, trim_box:, number:)
       @media_box = media_box
       @crop_box = crop_box
       @art_box = art_box
       @bleed_box = bleed_box
       @trim_box = trim_box
-      @pagenum = pagenum
+      @number = number
     end
 
     # @return [String]
     def inspect
-      "#<#{self.class.name} pagenum=#{@pagenum}>"
+      "#<#{self.class.name} number=#{@number}>"
     end
 
     # @return [Integer]

@@ -56,9 +56,19 @@ The `pages` command finds sizing information about the pages within a document:
 ```ruby
 pages = document.pages
 pages.count # e.g. 2
-page = pages[0]
-page.pagenum # 1
-box = page.media_box # page.crop_box / page.bleed_box / page.trim_box / page.art_box
-box.width # 612
-box.height # 792
+pages.each do |page|
+  page.number # e.g. 1, 2, ...
+  page.width # 612
+  page.height # 792
+end
+```
+
+#### Draw
+
+The `draw` command is useful for converting a document between formats:
+
+```ruby
+document.pages.each do |page|
+  document.draw(page: page.number, format: "png", path: "./file-#{page.number}.png")
+end
 ```

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+require 'tempfile'
 
 SimpleCov.start do
   enable_coverage :branch
