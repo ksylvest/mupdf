@@ -31,6 +31,7 @@ module MuPDF
     # @return [MuPDF::Box]
     def self.parse(text, kind:)
       match = text.match(REGEX)
+      return unless match
 
       new(
         l: Integer(match[:l]),
