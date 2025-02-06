@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir.glob('{bin,lib,exe}/**/*') + %w[README.md Gemfile]
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'bigdecimal'
   spec.add_dependency 'open3'
   spec.add_dependency 'zeitwerk'
 end
