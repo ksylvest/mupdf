@@ -28,7 +28,7 @@ module MuPDF
     # @param text [String]
     # @param kind [Symbol]
     #
-    # @return [MuPDF::Box]
+    # @return [MuPDF::Box, nil]
     def self.parse(text, kind:)
       match = text.match(REGEX)
       return unless match

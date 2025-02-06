@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mupdf (1.0.1)
+    mupdf (1.0.2)
       open3
       zeitwerk
 
