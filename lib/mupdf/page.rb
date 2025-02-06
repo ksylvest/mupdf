@@ -120,14 +120,14 @@ module MuPDF
       "#<#{self.class.name} number=#{@number}>"
     end
 
-    # @return [Integer]
+    # @return [Integer, nil]
     def width
-      @media_box.width
+      @media_box&.width
     end
 
-    # @return [Integer]
+    # @return [Integer, nil]
     def height
-      @media_box.height
+      @media_box&.height
     end
   end
 end
