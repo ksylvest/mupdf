@@ -96,9 +96,9 @@ module MuPDF
     #   @return [MuPDFBox, nil]
     attr_accessor :trim_box
 
-    # @!attribute pagenum
+    # @!attribute number
     #   @return [Integer]
-    attr_accessor :pagenum
+    attr_accessor :number
 
     # @param media_box [MuPDF::Box]
     # @param crop_box [MuPDF::Box]
