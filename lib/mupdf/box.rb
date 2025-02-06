@@ -3,26 +3,26 @@
 module MuPDF
   # A bounding box for a PDF (e.g. media / crop / bleed / trim).
   class Box
-    REGEX = /l="(?<l>\d+)" b="(?<b>\d+)" r="(?<r>\d+)" t="(?<t>\d+)"/
+    REGEX = /l="(?<l>\d+.?\d*)" b="(?<b>\d+.?\d*)" r="(?<r>\d+.?\d*)" t="(?<t>\d+.?\d*)"/
 
     # @!attribute l
-    #   @return [String] The left coordinate.
+    #   @return [BigDecimal] The left coordinate.
     attr_reader :l
 
     # @!attribute b
-    #   @return [String] The bottom coordinate.
+    #   @return [BigDecimal] The bottom coordinate.
     attr_reader :b
 
     # @!attribute r
-    #   @return [String] The right coordinate.
+    #   @return [BigDecimal] The right coordinate.
     attr_reader :r
 
     # @!attribute t
-    #   @return [String] The top coordinate.
+    #   @return [BigDecimal] The top coordinate.
     attr_reader :t
 
     # @!attribute kind
-    #   @return [Symbol] The kind of box.
+    #   @return [BigDecimal] The kind of box.
     attr_reader :kind
 
     # @param text [String]
@@ -34,18 +34,18 @@ module MuPDF
       return unless match
 
       new(
-        l: Integer(match[:l]),
-        b: Integer(match[:b]),
-        r: Integer(match[:r]),
-        t: Integer(match[:t]),
+        l: BigDecimal(match[:l]),
+        b: BigDecimal(match[:b]),
+        r: BigDecimal(match[:r]),
+        t: BigDecimal(match[:t]),
         kind:
       )
     end
 
-    # @param l [Integer]
-    # @param b [Integer]
-    # @param r [Integer]
-    # @param t [Integer]
+    # @param l [BigDecimal]
+    # @param b [BigDecimal]
+    # @param r [BigDecimal]
+    # @param t [BigDecimal]
     # @param kind [Symbol] optional
     def initialize(l:, b:, r:, t:, kind: nil)
       @l = l
@@ -60,12 +60,12 @@ module MuPDF
       "#<#{self.class.name} l=#{l} b=#{b} r=#{r} t=#{t} kind=#{kind}>"
     end
 
-    # @return [Integer]
+    # @return [BigDecimal]
     def width
       @r - @l
     end
 
-    # @return [Integer]
+    # @return [BigDecimal]
     def height
       @t - @b
     end
