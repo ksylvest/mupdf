@@ -117,7 +117,7 @@ module MuPDF
 
     # @return [String]
     def inspect
-      "#<#{self.class.name} number=#{@number}>"
+      "#<#{self.class.name} number=#{@number} width=#{width} height=#{height}>"
     end
 
     # @return [Integer, nil]
