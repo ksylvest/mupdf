@@ -13,7 +13,7 @@ GEM
     bigdecimal (3.1.9)
     diff-lcs (1.5.1)
     docile (1.4.1)
-    json (2.10.1)
+    json (2.10.2)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     open3 (0.2.1)
