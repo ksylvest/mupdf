@@ -10,7 +10,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
-    bigdecimal (3.3.0)
+    bigdecimal (3.3.1)
     diff-lcs (1.6.2)
     docile (1.4.1)
     json (2.15.0)
